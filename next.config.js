@@ -1,23 +1,14 @@
-const { PHASE_DEVELOPMENT_SERVER } = require('next/constants');
-
-module.exports = (phase) => {
-  if (phase === PHASE_DEVELOPMENT_SERVER) {
-    return {
-      env: {
-        mongodb_username: 'maximilian',
-        mongodb_password: '2YkcXq43KyPk0vqp',
-        mongodb_clustername: 'cluster0',
-        mongodb_database: 'my-site-dev',
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "morgan-nextjs-demo-users-image.s3.eu-north-1.amazonaws.com",
+        port: "",
+        pathname: "/**",
       },
-    };
-  }
-
-  return {
-    env: {
-      mongodb_username: 'maximilian',
-      mongodb_password: '2YkcXq43KyPk0vqp',
-      mongodb_clustername: 'cluster0',
-      mongodb_database: 'my-site',
-    },
-  };
+    ],
+  },
 };
+module.exports = nextConfig;
