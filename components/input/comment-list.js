@@ -1,7 +1,10 @@
-import classes from './comment-list.module.css';
+import classes from "./comment-list.module.css";
 
 function CommentList(props) {
   const { items } = props;
+  if (!items || !Array.isArray(items) || items.includes(undefined)) {
+    return <p>No comments to display</p>;
+  }
 
   return (
     <ul className={classes.comments}>
