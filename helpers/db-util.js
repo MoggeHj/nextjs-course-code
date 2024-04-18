@@ -1,8 +1,10 @@
 import { MongoClient } from "mongodb";
 
+//Need to whitelist the IP address in MongoDB Atlas
 export async function connectDatabase() {
   const client = await MongoClient.connect(
-    "mongodb+srv://morganhjelm82:gXPwBd5DLeIIX4Vj@next-js-react-the-compl.d2wdba8.mongodb.net/"
+    "mongodb+srv://morganhjelm82:gXPwBd5DLeIIX4Vj@next-js-react-the-compl.d2wdba8.mongodb.net/",
+    { useUnifiedTopology: true }
   );
 
   return client;
