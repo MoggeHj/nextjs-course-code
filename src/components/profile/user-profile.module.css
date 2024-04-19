@@ -1,0 +1,9 @@
+.profile {
+  margin: 3rem auto;
+  text-align: center;
+  color: rgb(202, 102, 13);
+}
+
+.profile h1 {
+  font-size: 5rem;
+}
