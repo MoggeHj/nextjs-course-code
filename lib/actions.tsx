@@ -6,6 +6,7 @@ import { revalidatePath } from "next/cache";
 
 //We need prevState since the useFormState hook is sending the initial state as the first argument
 const shareMeal = async (prevState, formData) => {
+  debugger;
   const isInvalidText = (text) => {
     return !text || text.trim().length === 0;
   };

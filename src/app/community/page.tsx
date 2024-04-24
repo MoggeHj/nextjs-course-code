@@ -5,7 +5,7 @@ import communityIcon from "@root/assets/icons/community.png";
 import eventsIcon from "@root/assets/icons/events.png";
 import classes from "./page.module.css";
 
-export default function CommunityPage() {
+const CommunityPage = () => {
   return (
     <>
       <header className={classes.header}>
@@ -37,4 +37,6 @@ export default function CommunityPage() {
       </main>
     </>
   );
-}
+};
+
+export default CommunityPage;

@@ -1,8 +1,12 @@
 import Link from "next/link";
+import { getServerSession } from "next-auth";
 
 import classes from "./login-navigation.module.css";
+import Logout from "../logout/logout";
 
-const LoginNavigation = () => {
+const LoginNavigation = async () => {
+  const session = await getServerSession();
+  console.log("Session:", { session });
   return (
     <header className={classes.header}>
       <Link href="/">
@@ -10,15 +14,15 @@ const LoginNavigation = () => {
       </Link>
       <nav>
         <ul>
+          {!session && (
+            <li>
+              <Link href="/login">Login</Link>
+            </li>
+          )}
           <li>
-            <Link href="/community/auth">Login</Link>
+            <Link href="/profile">Profile</Link>
           </li>
-          <li>
-            <Link href="/community/profile">Profile</Link>
-          </li>
-          <li>
-            <button>Logout</button>
-          </li>
+          {session && <Logout></Logout>}
         </ul>
       </nav>
     </header>
